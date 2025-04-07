@@ -10,7 +10,6 @@ TOKEN_TYPES = {
     "SPECIAL_SYMBOL": r"[{}()\[\],;]",
 }
 
-
 def lexical_analyzer(code):
     tokens = []
 
@@ -24,20 +23,22 @@ def lexical_analyzer(code):
 
     return tokens
 
+# Sample C++ code as a string 
+cpp_code = """
+int main() {
+    int x =3;
+    for(int i =0; i<3;i++){
+    x++;
+    }
+    cout<<x;
+    return 0;
+}
+"""
 
-# Get C++ code input from user
-print("Enter your C++ code (type 'END' in a new line to finish):")
-cpp_code = ""
-while True:
-    line = input()
-    if line.strip().upper() == "END":
-        break
-    cpp_code += line + "\n"
 
-# Run the Lexical Analyzer
 tokens = lexical_analyzer(cpp_code)
 
-# Print Tokens
+
 print("\nTokens:")
 for lexeme, token_type in tokens:
     print(f"{lexeme} --> {token_type}")
